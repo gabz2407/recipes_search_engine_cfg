@@ -12,7 +12,17 @@ def search():
     results = recipe_search(user_ingredient)
 
     if not results:
-        print(f"Sorry, there's no recipies with {user_ingredient}. \n")
+        print(f"Sorry, there's no recipies with {user_ingredient}.")
+        try_again = input("Do you want to try any other? [Y/N]")
+        answer = try_again.lower()
+        if answer == "y":
+            choose_ingredient = input('Enter an ingredient for your recipe: ')
+            results = recipe_search(choose_ingredient)
+            print_results(results)
+        elif answer == 'n':
+            print("Thank you, see you next time!")
+        else:
+            print('Please, try again!')
     else:
         print_results(results)
 
