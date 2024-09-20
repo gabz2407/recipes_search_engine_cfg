@@ -12,10 +12,22 @@ def print_results(results):
     for result in results:
         recipe = result['recipe']
         print(recipe['label'])
-        print(f'{recipe['cuisineType']} cuisine.')
-        print(f'{recipe['dietLabels']} recipe.')
-        print(f'{recipe['calories']}kcal.')
+
+        cuisine_type = recipe['cuisineType']
+        for i in cuisine_type:
+            cuisine = i.capitalize()
+            print(f'{cuisine} cuisine.')
+
+        diet_label = recipe['dietLabels']
+        for i in diet_label:
+            diet = i.capitalize()
+            print(f'{diet} recipe.')
+
+        kcal = int(recipe['calories'])
+        print(f'Approx {kcal}kcal.')
+
         print(recipe['url'])
+        print()
 
 def search():
     user_ingredient = input('Enter an ingredient for your recipe: ')
