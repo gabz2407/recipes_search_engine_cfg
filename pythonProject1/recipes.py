@@ -7,6 +7,12 @@ def recipe_search(ingredient):
     data = result.json()
     return data['hits']
 
+def print_results(results):
+    for result in results:
+        recipe = result['recipe']
+        print(recipe['label'])
+        print(recipe['url'])
+
 def search():
     user_ingredient = input('Enter an ingredient for your recipe: ')
     results = recipe_search(user_ingredient)
@@ -26,10 +32,5 @@ def search():
     else:
         print_results(results)
 
-def print_results(results):
-    for result in results:
-        recipe = result['recipe']
-        print(recipe['label'])
-        print(recipe['url'])
 
 search()
