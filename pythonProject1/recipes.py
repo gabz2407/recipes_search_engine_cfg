@@ -8,9 +8,13 @@ def recipe_search(ingredient):
     return data['hits']
 
 def search():
-    choose_ingredient = input('Enter an ingredient: ')
-    results = recipe_search(choose_ingredient)
-    print_results(results)
+    user_ingredient = input('Enter an ingredient for your recipe: ')
+    results = recipe_search(user_ingredient)
+
+    if not results:
+        print(f"Sorry, there's no recipies with {user_ingredient}. \n")
+    else:
+        print_results(results)
 
 def print_results(results):
     for result in results:
