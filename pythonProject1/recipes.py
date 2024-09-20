@@ -10,6 +10,12 @@ def recipe_search(ingredient):
 def search():
     choose_ingredient = input('Enter an ingredient: ')
     results = recipe_search(choose_ingredient)
-    recipe_search(results)
+    print_results(results)
+
+def print_results(results):
+    for result in results:
+        recipe = result['recipe']
+        print(recipe['label'])
+        print(recipe['url'])
 
 search()
