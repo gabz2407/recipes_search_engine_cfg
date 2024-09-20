@@ -7,4 +7,9 @@ def recipe_search(ingredient):
     data = result.json()
     return data['hits']
 
-recipe_search('cheese')
+def search():
+    choose_ingredient = input('Enter an ingredient: ')
+    results = recipe_search(choose_ingredient)
+    recipe_search(results)
+
+search()
