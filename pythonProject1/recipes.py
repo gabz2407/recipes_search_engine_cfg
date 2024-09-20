@@ -7,10 +7,14 @@ def recipe_search(ingredient):
     data = result.json()
     return data['hits']
 
+
 def print_results(results):
     for result in results:
         recipe = result['recipe']
         print(recipe['label'])
+        print(f'{recipe['cuisineType']} cuisine.')
+        print(f'{recipe['dietLabels']} recipe.')
+        print(f'{recipe['calories']}kcal.')
         print(recipe['url'])
 
 def search():
